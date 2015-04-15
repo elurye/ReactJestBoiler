@@ -21,6 +21,7 @@ var loading = false;
 
 if (__SERVER__) {
   pages['/'] = {title: 'Home Page'};
+  pages['/ToDoApp'] = {title: 'Meetup #2 To Do Sample'};
   pages['/privacy'] = {title: 'Privacy Policy'};
 }
 
