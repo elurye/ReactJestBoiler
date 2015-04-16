@@ -15,6 +15,7 @@
     "eventemitter3": "0.1.6",
     "express": "4.12.3",
     "fastclick": "1.0.6",
+    "file-loader": "^0.8.1",
     "flux": "2.0.1",
     "front-matter": "1.0.0",
     "jade": "1.9.2",
@@ -66,10 +67,14 @@
     "webpack-dev-server": "^1.8.0"
   },
   "jest": {
+    "globals": {
+      "__DEV__": true
+    },
     "rootDir": "./src",
     "scriptPreprocessor": "../preprocessor.js",
     "unmockedModulePathPatterns": [
-      "react"
+      "./node_modules/react",
+      "./node_modules/flux"
     ]
   },
   "scripts": {

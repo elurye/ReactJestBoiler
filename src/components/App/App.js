@@ -17,6 +17,7 @@ import Navbar from '../Navbar';
 import ContentPage from '../ContentPage';
 import NotFoundPage from '../NotFoundPage';
 import setViewport from './setViewport';
+import ToDoApp from '../ToDoApp';
 
 class App {
 
@@ -53,24 +54,37 @@ class App {
       return React.createElement(NotFoundPage, page);
     }
 
+    var content = '';
+
+    switch (this.props.path) {
+      case '/ToDoApp':
+        content = (
+          <div className="container">
+            <h2>{page.title}</h2>
+            {<ToDoApp />}
+          </div>
+        );
+        break;
+
+      default:
+        content = (
+          <div>
+            <div className="jumbotron">
+              <div className="container text-center">
+                <h1>React Meetup #2</h1>
+
+                <p>Hollywood Office of Live Nation</p>
+              </div>
+            </div>
+            <ContentPage className="container" {...page} />
+          </div>);
+        break;
+    }
+
     return (
       <div className="App">
         <Navbar />
-        {
-          this.props.path !== '/ToDoApp' ?
-            <div>
-              <div className="jumbotron">
-                <div className="container text-center">
-                  <h1>React Meetup #2</h1>
-                  <p>Hollywood Office of Live Nation</p>
-                </div>
-              </div>
-              <ContentPage className="container" {...page} />
-            </div> :
-            <div className="container">
-              <h2>{page.title}</h2>
-            </div>
-        }
+        {content}
         <div className="navbar-footer">
           <div className="container">
             <p className="text-muted">
