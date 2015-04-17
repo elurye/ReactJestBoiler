@@ -33,7 +33,7 @@ describe('ToDoApp', function() {
     state.todos.push(todoItem);
 
     //Call the actual method to test
-    Component.addTodo(todoItem);
+    Component.addTodo();
 
     expect(Component.state.todos).toEqual(state.todos);
   });

@@ -1,6 +1,5 @@
 jest.dontMock('../Login');
 jest.dontMock('classnames');
-jest.mock('../testModule');
 
 describe('Login component test', function() {
 
@@ -46,9 +45,9 @@ describe('Login component test', function() {
 
       dom.handleLoginSubmit(event);
 
-      expect(testObject.smile).toBeCalled();
       expect(dom.state.loginSuccessful).toEqual(true);
       expect(dom.state.loginStatusText).toEqual('Success');
+      expect(testObject.smile).toBeCalledWith('happy');
     });
 
     it('changes state upon login failure', function() {

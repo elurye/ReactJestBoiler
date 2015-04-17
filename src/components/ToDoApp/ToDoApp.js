@@ -23,6 +23,7 @@ var ToDoApp = React.createClass({
       ]
     };
   },
+
   addTodo: function() {
     var todos = this.state.todos;
 
@@ -39,11 +40,13 @@ var ToDoApp = React.createClass({
     // Return false for form
     return false;
   },
+
   handleChange: function(e) {
     this.setState({
       inputValue: e.target.value
     });
   },
+
   removeTodo: function(index) {
     this.state.todos.splice(index, 1);
 
@@ -51,6 +54,7 @@ var ToDoApp = React.createClass({
       todos: this.state.todos
     });
   },
+
   markTodoDone: function(index) {
     var todos = this.state.todos;
     var todo = this.state.todos[index];
@@ -67,6 +71,7 @@ var ToDoApp = React.createClass({
       todos: todos
     });
   },
+
   render: function() {
 
     var todos = this.state.todos.map(function(todo, index) {
