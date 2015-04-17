@@ -96,6 +96,9 @@ $ npm install
 
 ### How to Test
 
+Requirements: Must use Node version 0.10 (recommended: nvm library to switch versions)
+
+
 Run unit tests powered by [Jest](https://facebook.github.io/jest/) with the following
 [npm](https://www.npmjs.org/doc/misc/npm-scripts.html) command:
 

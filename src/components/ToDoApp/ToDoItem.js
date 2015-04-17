@@ -1,19 +1,24 @@
 'use strict';
 
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 class ToDoItem extends Component {
 
   render () {
     var defaultClass = 'callout';
 
-    defaultClass += this.props.done ? ' callout-success' : ' callout-info';
+    var defaultClass = classNames({
+      'callout': true,
+      'callout-success': this.props.done,
+      'callout-info': !this.props.done
+    });
 
     return (
-      <div className={defaultClass}>
-        <i className='ficon ficon-checkmark mark-done' onClick={this.props.onClickDone}></i>
-        <span>{this.props.value}</span>
-        <i className='close' onClick={this.props.onClickClose}>&times;</i>
+      <div>
+        <input type="checkbox" className='ficon ficon-checkmark mark-done' onClick={this.props.onClickDone}></input>
+        <label className={defaultClass}>{this.props.value}</label>
+        <button className='close' onClick={this.props.onClickClose}>&times;</button>
       </div>
     );
   }

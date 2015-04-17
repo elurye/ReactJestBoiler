@@ -17,6 +17,7 @@ import Navbar from '../Navbar';
 import ContentPage from '../ContentPage';
 import NotFoundPage from '../NotFoundPage';
 import setViewport from './setViewport';
+import Login from '../Login';
 import ToDoApp from '../ToDoApp';
 
 class App {
@@ -66,6 +67,15 @@ class App {
         );
         break;
 
+      case '/Login':
+        content = (
+          <div className="container">
+            <h2>{page.title}</h2>
+            {<Login />}
+          </div>
+        );
+        break;
+
       default:
         content = (
           <div>
@@ -90,7 +100,8 @@ class App {
             <p className="text-muted">
               <span>© Totally Legit</span>
               <span><a href="/">Home</a></span>
-              <span><a href="/ToDoApp">Demo ToDo App</a></span>
+              <span><a href="/Login">Login</a></span>
+              <span><a href="/ToDoApp">ToDoApp</a></span>
               <span><a href="/privacy">Privacy</a></span>
               <span>{'Viewport: ' + this.props.viewport.width + 'x' + this.props.viewport.height}</span>
             </p>

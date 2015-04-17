@@ -70,14 +70,10 @@ var ToDoApp = React.createClass({
   render: function() {
 
     var todos = this.state.todos.map(function(todo, index) {
-      return (
-        <ToDo
-          key={index}
-          value={todo.value}
-          done={todo.done}
-          onClickClose={this.removeTodo.bind(this, index)}
-          onClickDone={this.markTodoDone.bind(this, index)}
-          /> );
+      return (<ToDo value={todo.value} key={index} done={todo.done}
+                onClickClose={this.removeTodo.bind(this, index)}
+                onClickDone={this.markTodoDone.bind(this, index)}
+              />);
     }.bind(this));
 
     return (
@@ -86,15 +82,12 @@ var ToDoApp = React.createClass({
           <h1>My Todo List</h1>
           {todos}
           <form
-            className='form-inline todo-form col-xs-8 col-xs-offset-2'
+            className='col-xs-8'
             role='form'
             onSubmit={this.addTodo}>
             <div className='input-group'>
-              <label className='sr-only'></label>
-              <input type='text' value={this.state.inputValue} onChange={this.handleChange} className='form-control' placeholder='What do you need to do?'/>
-              <span className='input-group-btn'>
-                <button className='btn btn-default'>Add Todo</button>
-              </span>
+              <input type='text' value={this.state.inputValue} onChange={this.handleChange} className='input-item' placeholder='What do you need to do?'/>
+              <button className='btn btn-default'>Add Todo</button>
             </div>
           </form>
         </div>
