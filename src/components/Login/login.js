@@ -2,7 +2,7 @@
 var React = require('react');
 var classNames = require('classnames');
 var testObject = require('./testModule');
-import './Login.less';
+require('./Login.less');
 
 
 module.exports = React.createClass({

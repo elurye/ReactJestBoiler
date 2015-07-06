@@ -43,7 +43,11 @@ describe('Login component test', function() {
           return this;
       });
 
-      dom.handleLoginSubmit(event);
+      var btn = TestUtils.findRenderedDOMComponentWithClass(dom, 'submit-button');
+
+      TestUtils.Simulate.click(btn);
+
+     // dom.handleLoginSubmit(event);
 
       expect(dom.state.loginSuccessful).toEqual(true);
       expect(dom.state.loginStatusText).toEqual('Success');

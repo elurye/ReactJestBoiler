@@ -23,6 +23,7 @@ if (__SERVER__) {
   pages['/'] = {title: 'Home Page'};
   pages['/Login'] = {title: 'Login Form Sample'};
   pages['/ToDoApp'] = {title: 'Meetup #2 To Do Sample'};
+  pages['/Queue'] = {title: 'Queue Sample With Timer'};
   pages['/privacy'] = {title: 'Privacy Policy'};
 }
 

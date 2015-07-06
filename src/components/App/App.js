@@ -10,6 +10,7 @@
 
 import './App.less';
 import React, { PropTypes } from 'react';
+//import ally from 'a11y';
 import invariant from 'react/lib/invariant';
 import AppActions from '../../actions/AppActions';
 import AppStore from '../../stores/AppStore';
@@ -19,6 +20,9 @@ import NotFoundPage from '../NotFoundPage';
 import setViewport from './setViewport';
 import Login from '../Login';
 import ToDoApp from '../ToDoApp';
+import Queue from '../Queue';
+
+import Box from './Box.js';
 
 class App {
 
@@ -76,6 +80,15 @@ class App {
         );
         break;
 
+      case '/Queue':
+        content = (
+          <div className="container">
+            <h2>{page.title}</h2>
+            {<Queue />}
+          </div>
+        );
+        break;
+
       default:
         content = (
           <div>
@@ -94,6 +107,7 @@ class App {
     return (
       <div className="App">
         <Navbar />
+        <Box />
         {content}
         <div className="navbar-footer">
           <div className="container">
@@ -102,8 +116,8 @@ class App {
               <span><a href="/">Home</a></span>
               <span><a href="/Login">Login</a></span>
               <span><a href="/ToDoApp">ToDoApp</a></span>
+              <span><a href="/Queue">Queue</a></span>
               <span><a href="/privacy">Privacy</a></span>
-              <span>{'Viewport: ' + this.props.viewport.width + 'x' + this.props.viewport.height}</span>
             </p>
           </div>
         </div>

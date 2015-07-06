@@ -21,7 +21,8 @@
     "jade": "1.9.2",
     "lodash": "3.6.0",
     "react": "0.13.1",
-    "superagent": "1.1.0"
+    "superagent": "1.1.0",
+    "a11y": "git+https://github.com/elurye/react-a11y"
   },
   "devDependencies": {
     "autoprefixer-loader": "^1.2.0",
@@ -57,6 +58,7 @@
     "jest-cli": "^0.4.0",
     "less": "^2.5.0",
     "less-loader": "^2.2.0",
+    "lodash": "^3.6.0",
     "minimist": "^1.1.1",
     "protractor": "^2.0.0",
     "psi": "^1.0.6",

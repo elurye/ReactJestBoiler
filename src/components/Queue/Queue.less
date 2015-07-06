@@ -1,0 +1,50 @@
+.Queue {
+
+  .callout {
+    margin-left: 15px;
+  }
+
+  .close, .mark-done {
+    transition: opacity 0.3s linear,
+    color 0.3s linear;
+  }
+
+  .close:hover {
+    color: #DD0000;
+  }
+
+  .mark-done {
+    margin-right: 30px;
+    cursor: pointer;
+  }
+
+  .mark-done:hover {
+    opacity: 0.5;
+    color: #00DD00;
+  }
+
+  .popped {
+    text-decoration: line-through;
+    color: #000066;
+  }
+
+  .queued {
+    text-decoration: none;
+    color: #37ffc4;
+  }
+
+  .todo-form {
+    padding-top: 15px;
+    padding-bottom: 30px;
+  }
+
+  .input-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .input-item {
+    width: 50%;
+  }
+}
