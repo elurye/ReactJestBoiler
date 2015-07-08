@@ -16,10 +16,11 @@ var Queue = React.createClass({
   getInitialState: function() {
     return {
       queue: [
-        { value: 'Be awesome', timeExecute: 0, done: false },
-        { value: 'Learn React', timeExecute: 1000, done: false  },
-        { value: 'Use JSX in my CodePens', timeExecute: 2000, done: false }
+        { value: 'Be awesome', done: false },
+        { value: 'Learn React', done: false  },
+        { value: 'Use JSX in my CodePens', done: false }
       ],
+      queueDone: [],
       inputValue: '',
       timeLastExecuted: 0
     };
@@ -52,19 +53,35 @@ var Queue = React.createClass({
   markTodoDone: function(e) {
     var index = 0;
     var queued = this.state.queue;
+    var queueDone = this.state.queueDone;
     var item = queued[index];
     queued.splice(index, 1);
     item.done = !item.done;
 
     if (item.done) {
-      queued.push(item);
-    } else {
-      queued.unshift(item);
+      queueDone.push(item);
     }
 
     this.setState({
-      queue: queued
+      queue: queued,
+      queueDone: queueDone
     });
+  },
+
+  startQueue: function() {
+    var queueInterval = 10000;
+    var num = 0;
+
+    var accessQueue = function() {
+      console.log(num++);
+      if (this.state.queue.length) {
+        this.markTodoDone();
+      } else {
+        clearInterval(interval);
+      }
+    }.bind(this);
+
+    var interval = setInterval(accessQueue, queueInterval);
   },
 
   render: function() {
@@ -79,6 +96,7 @@ var Queue = React.createClass({
         <div className='col-xl-9 col-xs-offset-3'>
           <h1>My Queue List</h1>
           <TimerExample start={Date.now()} />
+          <button className="btn btn-warning" onClick={this.startQueue}>Start Marking Queue</button>
           <ul>
             {queue}
           </ul>
